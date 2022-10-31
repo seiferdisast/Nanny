@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.nanny.databinding.ActivitySplachBinding
 import com.example.nanny.databinding.ActivitySplashaniBinding
 
 class Splashani : AppCompatActivity() {
@@ -22,6 +21,6 @@ class Splashani : AppCompatActivity() {
         handler= Handler(Looper.myLooper()!!)
         handler.postDelayed({
             startActivity(Intent(this,MainActivity::class.java))
-        },6000)
+        },5000)
     }
 }
