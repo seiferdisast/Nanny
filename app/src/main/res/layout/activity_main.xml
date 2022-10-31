@@ -19,8 +19,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="308dp"
-        android:layout_height="66dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
         android:text="Bienvenido a Nanny, el lugar donde encontraras miles de nanas con toda la disposicion para cuidar de tu pequeño con todo el amor que ellos requieren y merecen."
         android:textAlignment="center"

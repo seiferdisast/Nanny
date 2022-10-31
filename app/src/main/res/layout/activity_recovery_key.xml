@@ -11,12 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:layout_marginBottom="90dp"
         android:text="Enviar"
         android:theme="@style/prettySubText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin3" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/inputEmailLogin3"
@@ -42,4 +45,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nannyimage" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:text="Ingresa el correo con el cual te registraste en nuestra app y dentro de pocos minutos te enviaremos un LINK valido para que la recuperes."
+        android:textAlignment="center"
+        android:theme="@style/prettySubText"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
