@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".login">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView"
         android:layout_width="210dp"
         android:layout_height="180dp"
         android:layout_marginTop="50dp"
@@ -18,55 +18,65 @@
         app:srcCompat="@drawable/nannyimage" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="308dp"
-        android:layout_height="66dp"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Bienvenido a Nanny, el lugar donde encontraras miles de nanas con toda la disposicion para cuidar de tu pequeño con todo el amor que ellos requieren y merecen."
-        android:textAlignment="center"
-        android:theme="@style/prettySubText"
+        android:text="Login"
+        android:theme="@style/prettyTittleText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <Button
-        android:id="@+id/btnLoginMain"
+    <EditText
+        android:id="@+id/inputEmailLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="Ingreso"
-        android:textAllCaps="false"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
-        android:id="@+id/btnAboutUsMain"
+    <EditText
+        android:id="@+id/inputPasswordLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Nosotros"
-        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="numberPassword"
+        android:minHeight="48dp"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginMain" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin" />
 
     <TextView
-        android:id="@+id/labelRegisterMain"
+        android:id="@+id/labelRecoveryPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="90dp"
-        android:text="No tienes cuenta? Registrate aqui."
+        android:layout_marginBottom="56dp"
+        android:text="Recuperar contraseña"
         android:theme="@style/prettySubText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAboutUsMain"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordLogin" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:theme="@style/prettySubText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="594dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
