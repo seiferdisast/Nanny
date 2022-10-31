@@ -33,5 +33,9 @@
         <item name="android:textSize">18dp</item>
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
     </style>
+    
+    <style name="splashapplogo" parent="Theme.Nanny">
+        <item name="android:windowBackground">@drawable/splach</item>
+    </style>
 
 </resources>
