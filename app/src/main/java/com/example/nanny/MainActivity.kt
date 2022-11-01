@@ -3,9 +3,7 @@ package com.example.nanny
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.example.nanny.databinding.ActivityMainBinding
-import com.example.nanny.databinding.ActivitySplashaniBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,13 +15,13 @@ class MainActivity : AppCompatActivity() {
         val view=binding.root
         setContentView(view)
         binding.btnLoginMain.setOnClickListener{
-            startActivity(Intent(this,login::class.java))
+            startActivity(Intent(this,Login::class.java))
         }
         binding.labelRegisterMain.setOnClickListener{
             startActivity(Intent(this,Register::class.java))
         }
         binding.btnAboutUsMain.setOnClickListener{
-            startActivity(Intent(this,Nosotros::class.java))
+            startActivity(Intent(this,AboutUs::class.java))
         }
     }
 }
