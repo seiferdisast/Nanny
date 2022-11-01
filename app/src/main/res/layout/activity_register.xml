@@ -103,10 +103,10 @@
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin2" />
+        app:layout_constraintTop_toBottomOf="@+id/inputRollRegister" />
 
     <EditText
-        android:id="@+id/inputEmailLogin2"
+        android:id="@+id/inputRollRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
@@ -141,7 +141,7 @@
         app:srcCompat="@drawable/nannyimage" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/labelTakeAPhotoRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="78dp"
@@ -149,14 +149,14 @@
         android:text="Tomar foto."
         android:theme="@style/prettyLabelText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintEnd_toStartOf="@+id/labelChargeImageRegister"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEmailRegister"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/labelChargeImageRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

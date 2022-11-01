@@ -7,7 +7,7 @@
     tools:context=".RecoveryKey">
 
     <Button
-        android:id="@+id/btnLogin2"
+        android:id="@+id/btnSendRecovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -18,11 +18,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin3"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailRecovery"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/inputEmailLogin3"
+        android:id="@+id/inputEmailRecovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
@@ -53,8 +53,8 @@
         android:text="Ingresa el correo con el cual te registraste en nuestra app y dentro de pocos minutos te enviaremos un LINK valido para que la recuperes."
         android:textAlignment="center"
         android:theme="@style/prettySubText"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin2"
+        app:layout_constraintBottom_toTopOf="@+id/btnSendRecovery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin3" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailRecovery" />
 </androidx.constraintlayout.widget.ConstraintLayout>
