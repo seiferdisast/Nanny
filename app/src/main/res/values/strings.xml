@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Nanny</string>
+    <string name="usuario">Correo</string>
+    <string name="contraseña">Contraseña</string>
 </resources>
