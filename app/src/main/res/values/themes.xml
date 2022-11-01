@@ -19,7 +19,7 @@
     </style>
     
     <style name="splashapplogo" parent="Theme.Nanny">
-        <item name="android:windowBackground">@drawable/splach</item>
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
 </resources>
