@@ -18,13 +18,13 @@
         app:srcCompat="@drawable/nannyimage" />
 
     <TextView
-        android:id="@+id/textNameUser"
+        android:id="@+id/labelNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="48dp"
         android:text="Nombre"
+        android:theme="@style/prettyTittleText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -34,42 +34,46 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Nuetras Nannys"
+        android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPhoneUser" />
+        app:layout_constraintTop_toBottomOf="@+id/labelPhoneUser" />
 
     <Button
-        android:id="@+id/BtnSchedulingUser"
+        android:id="@+id/btnSchedullingUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Agendamiento"
+        android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnOurNannysUser" />
 
     <Button
-        android:id="@+id/BtnEditRegusterUser"
+        android:id="@+id/btnEditRegisterUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="90dp"
         android:text="Editar Perfil"
+        android:theme="@style/prettyLabelText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtnSchedulingUser"
+        app:layout_constraintTop_toBottomOf="@+id/btnSchedullingUser"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textPhoneUser"
+        android:id="@+id/labelPhoneUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:text="Telefono"
+        android:theme="@style/prettySubText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
+        app:layout_constraintTop_toBottomOf="@+id/labelNameUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
