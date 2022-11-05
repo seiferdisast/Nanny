@@ -13,8 +13,8 @@ class NannysAdapter (private val context: Context,val listado:MutableList<Nannys
         lateinit var datos:TextView
         lateinit var datos2:TextView
         init {
-            datos=itemview.findViewById(R.id.txtnameNanny)
-            datos2=itemview.findViewById(R.id.txtcorreoNanny)
+            datos=itemview.findViewById(R.id.labelNameOurNanny)
+            datos2=itemview.findViewById(R.id.labelPhoneOurNannys)
         }
     }
 
