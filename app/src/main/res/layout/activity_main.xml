@@ -20,13 +20,12 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Bienvenido a Nanny, el lugar donde encontraras miles de nanas con toda la disposicion para cuidar de tu pequeño con todo el amor que ellos requieren y merecen."
         android:textAlignment="center"
         android:theme="@style/prettySubText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
