@@ -25,7 +25,7 @@ class Login : AppCompatActivity() {
                 Toast.makeText(this,"Datos incorrectos",Toast.LENGTH_SHORT).show()
             }
         }
-        binding.labelRecoveryPass.setOnClickListener{
+        binding.labelRecoveryPassLogin.setOnClickListener{
             startActivity(Intent(this,RecoveryKey::class.java))
         }
     }
