@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="googleMapaApiKey" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyDh2qnBwabkmV-eEJ1Fx0Tq8Mce8AI4czA
+    </string>
+</resources>
