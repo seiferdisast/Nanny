@@ -1,25 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="prettyTittleText">
+        <item name="android:textColor">@color/nannyDarkBlue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
     </style>
 
     <style name="prettySubText">
+        <item name="android:textColor">@color/nannyDarkBlue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
     </style>
 
     <style name="prettyLabelText">
+        <item name="android:textColorPrimary">@color/nannyDarkBlue</item>
+        <item name="android:textColorHint">@color/nannyYellow</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
     </style>
-    
-    <style name="splashapplogo" parent="Theme.Nanny">
-        <item name="android:windowBackground">@drawable/splash</item>
+
+    <style name="prettyButtonLabelText">
+        <item name="android:backgroundTint">@color/nannyDarkBlue</item>
+        <item name="android:textColor">@color/nannyPink</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
     </style>
 
 </resources>
