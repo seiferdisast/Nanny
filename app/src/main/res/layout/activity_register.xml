@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nannyPink"
     tools:context=".Register">
 
     <Button
@@ -13,27 +14,28 @@
         android:layout_marginBottom="90dp"
         android:text="Guardar"
         android:textAllCaps="false"
-        android:theme="@style/prettyLabelText"
+        android:theme="@style/prettyButtonLabelText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailRegister"
-        app:layout_constraintVertical_bias="0.926" />
+        app:layout_constraintTop_toBottomOf="@+id/inputRollRegister"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
+
+
         android:id="@+id/inputNamesRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="130dp"
         android:ems="10"
-        android:hint="Correo"
+        android:hint="Nombres y Apellidos"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputPhoneRegister" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputEmailRegister"
@@ -41,13 +43,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Rol"
+        android:hint="Correo"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNamesRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/inputPhoneRegister" />
 
     <EditText
         android:id="@+id/inputPhoneRegister"
@@ -56,12 +57,11 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Celular"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
+        android:inputType="number"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUserRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/inputAdressRegister" />
 
     <EditText
         android:id="@+id/inputAdressRegister"
@@ -69,27 +69,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="Direccion"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputPasswordRegister" />
-
-    <EditText
-        android:id="@+id/inputUserRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Dirección"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:theme="@style/prettyLabelText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputAdressRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNamesRegister" />
 
     <EditText
         android:id="@+id/inputPasswordRegister"
@@ -97,36 +82,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
+        android:hint="Password"
+        android:inputType="number"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputRollRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailRegister" />
 
     <EditText
         android:id="@+id/inputRollRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Nombres y Apellidos"
+        android:hint="Roll"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textAllCaps="false"
         android:theme="@style/prettyLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordRegister" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="68dp"
         android:text="Datos personales"
         android:theme="@style/prettyTittleText"
         app:layout_constraintEnd_toStartOf="@+id/inputImageRegister"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -144,28 +130,22 @@
         android:id="@+id/labelTakeAPhotoRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="64dp"
         android:text="Tomar foto."
-        android:theme="@style/prettyLabelText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/labelChargeImageRegister"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:theme="@style/prettySubText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailRegister"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/inputRollRegister" />
 
     <TextView
         android:id="@+id/labelChargeImageRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="78dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="96dp"
         android:text="Cargar foto."
-        android:theme="@style/prettyLabelText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:theme="@style/prettySubText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailRegister"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/inputRollRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
