@@ -1,5 +1,6 @@
 package com.example.nanny
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.nanny.databinding.ActivityRegisterBinding
@@ -31,6 +33,34 @@ class Register : AppCompatActivity() {
                 }
             }
             openCamera.launch(intent)
+        }
+
+
+        fun savedata(){
+            val user:String = binding.inputEmailRegister.text.toString()
+            val password:String=binding.inputPasswordRegister.text.toString()
+            val address:String=binding.inputAdressRegister.text.toString()
+            val name:String=binding.inputNamesRegister.text.toString()
+            val phone:String=binding.inputPhoneRegister.text.toString()
+            val rol:String=binding.inputRollRegister.text.toString()
+
+            val datos=getSharedPreferences("datauser",Context.MODE_PRIVATE)
+            val editor=datos.edit()
+            editor.putString("nombreusuario",user)
+            editor.putString("claveusuario",password)
+            editor.putString("addressUsuario",address)
+            editor.putString("nameusuario",name)
+            editor.putString("phoneusuario",phone)
+            editor.putString("rolusuario",rol)
+            editor.commit()
+            Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
+            startActivity(Intent(this,MainActivity::class.java))
+        }
+
+        binding.btnSaveRegister.setOnClickListener{
+            savedata()
+
+
         }
     }
 

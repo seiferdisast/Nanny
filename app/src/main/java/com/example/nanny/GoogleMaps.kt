@@ -32,7 +32,7 @@ class GoogleMaps : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun crearMarker(){
-        val coordenadas=LatLng(4.6014503000788105, -74.1524734618506)
+        val coordenadas=LatLng(4.735967, -74.041192)
         val marker:MarkerOptions=MarkerOptions().position(coordenadas).title("randomizeBogota")
         map.addMarker(marker)
         map.animateCamera(

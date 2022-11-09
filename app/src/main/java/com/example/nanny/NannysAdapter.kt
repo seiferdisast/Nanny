@@ -1,13 +1,12 @@
 package com.example.nanny
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NannysAdapter (private val context: Context,val listado:MutableList<Nannys>):
+class NannysAdapter(private val context: OurNannys, val listado:MutableList<Nannys>):
     RecyclerView.Adapter<NannysAdapter.ViewHolder>(){
     inner class ViewHolder(itemview:View):RecyclerView.ViewHolder(itemview){
         lateinit var datos:TextView
