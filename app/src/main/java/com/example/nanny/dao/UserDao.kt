@@ -15,5 +15,5 @@ interface UserDao {
     fun insert(user:UserModel)
     @Delete
     fun del(user:UserModel)
-
+//comment
 }
