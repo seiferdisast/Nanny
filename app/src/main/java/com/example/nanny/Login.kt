@@ -86,7 +86,7 @@ class Login : AppCompatActivity() {
     private fun authlogin(email:String,password:String){
 
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){
-                task->
+            task->
             if (task.isSuccessful){
                 Toast.makeText(this,"datos ok",Toast.LENGTH_LONG).show()
             }
@@ -102,7 +102,6 @@ class Login : AppCompatActivity() {
         val user = binding.inputEmailLogin.text.toString()
         val password=binding.inputPasswordLogin.text.toString()
         val consultUser=database.userDao.consult(user)
-        println(consultUser)
         if (consultUser!=null){
             println(consultUser.pass)
             if (consultUser.pass==password){

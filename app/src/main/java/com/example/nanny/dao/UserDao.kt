@@ -4,16 +4,15 @@ import androidx.room.*
 import com.example.nanny.model.UserModel
 
 @Dao
-interface UserDao {
+interface UserDAO {
 
- @Query("SELECT * FROM 'usuarios' where user =:user")
- fun consult(user:String):UserModel
+    @Query("SELECT * FROM users")
+    fun consult():List<UserModel>
 
- @Update
- fun update(user:UserModel)
- @Insert
- fun insert(user:UserModel)
- @Delete
- fun del(user:UserModel)
-
+    @Update
+    fun update(user:UserModel)
+    @Insert
+    fun insert(user: UserModel)
+    @Delete
+    fun delete(user: UserModel)
 }
