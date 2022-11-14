@@ -12,8 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.room.Room
-import com.example.nanny.dao.UserDAO
-import com.example.nanny.data.UserDB
+import com.example.nanny.data.UserData
 import com.example.nanny.databinding.ActivityRegisterBinding
 import com.example.nanny.model.UserModel
 import java.io.File
@@ -21,17 +20,16 @@ import java.io.File
 class Register : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var database: UserDB
+    private lateinit var database:UserData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
 
         database= Room.databaseBuilder(
-            application, UserDB::class.java,UserDB.DATABASE_NAME).allowMainThreadQueries().build()
+            application,UserData::class.java,UserData.DATABASE_NAME).allowMainThreadQueries().build()
 
         setContentView(binding.root)
-
         binding.labelTakeAPhotoRegister.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
                 it.resolveActivity(packageManager).also { component ->
@@ -45,13 +43,36 @@ class Register : AppCompatActivity() {
             openCamera.launch(intent)
         }
 
-        binding.btnSaveRegister.setOnClickListener {
-            saveDataDB()
-            Toast.makeText(this,"Bienvenido a Nanny", Toast.LENGTH_SHORT).show()
-            Toast.makeText(this,"Gracias por registrarte", Toast.LENGTH_LONG).show()
+
+        fun savedata(){
+            val user:String = binding.inputEmailRegister.text.toString()
+            val password:String=binding.inputPasswordRegister.text.toString()
+            val address:String=binding.inputAdressRegister.text.toString()
+            val name:String=binding.inputNamesRegister.text.toString()
+            val phone:String=binding.inputPhoneRegister.text.toString()
+            val rol:String=binding.inputRollRegister.text.toString()
+
+            val datos=getSharedPreferences("datauser",Context.MODE_PRIVATE)
+            val editor=datos.edit()
+            editor.putString("nombreusuario",user)
+            editor.putString("claveusuario",password)
+            editor.putString("addressUsuario",address)
+            editor.putString("nameusuario",name)
+            editor.putString("phoneusuario",phone)
+            editor.putString("rolusuario",rol)
+            editor.commit()
+
             startActivity(Intent(this,MainActivity::class.java))
         }
 
+        binding.btnSaveRegister.setOnClickListener{
+            //savedata()
+            saveuserDB()
+            Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
+
+
+
+        }
     }
 
     val openCamera =
@@ -71,24 +92,7 @@ class Register : AppCompatActivity() {
         file = File.createTempFile("IMG_${System.currentTimeMillis()}_", ".jpg", dir)
     }
 
-    fun saveDataDB(){
-        val names = binding.inputNamesRegister.text.toString()
-        val address = binding.inputAdressRegister.text.toString()
-        val phone = binding.inputPhoneRegister.text.toString()
-        val email = binding.inputEmailRegister.text.toString()
-        val password = binding.inputPasswordRegister.text.toString()
-        val roll = binding.inputRollRegister.text.toString()
-
-        val user=UserModel(names,address,phone,email,password,roll)
-        database.userDAO.insert(user)
-    }
-
-
-    /*
-
-    //This code of bottom is for save data on ssd memory
-
-    private fun createContent() :ContentValues{
+    /*private fun createContent() :ContentValues{
         val namefile = file.name
         val typeFile = "image/jpg"
         return ContentValues().apply {
@@ -127,4 +131,17 @@ class Register : AppCompatActivity() {
 
     private fun createPhotoFile() {
     }*/
+
+fun saveuserDB(){
+    val user = binding.inputEmailRegister.text.toString()
+    val password=binding.inputPasswordRegister.text.toString()
+    val address=binding.inputAdressRegister.text.toString()
+    val name=binding.inputNamesRegister.text.toString()
+    val phone=binding.inputPhoneRegister.text.toString()
+    val rol=binding.inputRollRegister.text.toString()
+    val usu=UserModel(user,password,address,name,phone,rol)
+    database.userDao.insert(usu)
+
+
+}
 }
