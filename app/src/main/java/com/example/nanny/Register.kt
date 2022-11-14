@@ -11,16 +11,24 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
+import androidx.room.Room
+import com.example.nanny.data.UserData
 import com.example.nanny.databinding.ActivityRegisterBinding
+import com.example.nanny.model.UserModel
 import java.io.File
 
 class Register : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var database:UserData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
+
+        database= Room.databaseBuilder(
+            application,UserData::class.java,UserData.DATABASE_NAME).allowMainThreadQueries().build()
+
         setContentView(binding.root)
         binding.labelTakeAPhotoRegister.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
@@ -53,12 +61,15 @@ class Register : AppCompatActivity() {
             editor.putString("phoneusuario",phone)
             editor.putString("rolusuario",rol)
             editor.commit()
-            Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
+
             startActivity(Intent(this,MainActivity::class.java))
         }
 
         binding.btnSaveRegister.setOnClickListener{
-            savedata()
+            //savedata()
+            saveuserDB()
+            Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
+
 
 
         }
@@ -120,4 +131,17 @@ class Register : AppCompatActivity() {
 
     private fun createPhotoFile() {
     }*/
+
+fun saveuserDB(){
+    val user = binding.inputEmailRegister.text.toString()
+    val password=binding.inputPasswordRegister.text.toString()
+    val address=binding.inputAdressRegister.text.toString()
+    val name=binding.inputNamesRegister.text.toString()
+    val phone=binding.inputPhoneRegister.text.toString()
+    val rol=binding.inputRollRegister.text.toString()
+    val usu=UserModel(user,password,address,name,phone,rol)
+    database.userDao.insert(usu)
+
+
+}
 }
