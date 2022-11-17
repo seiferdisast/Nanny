@@ -15,16 +15,20 @@ import androidx.room.Room
 import com.example.nanny.data.UserData
 import com.example.nanny.databinding.ActivityRegisterBinding
 import com.example.nanny.model.UserModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.io.File
 
 class Register : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var database:UserData
-
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
+        firebaseAuth=Firebase.auth
 
         database= Room.databaseBuilder(
             application,UserData::class.java,UserData.DATABASE_NAME).allowMainThreadQueries().build()
@@ -67,12 +71,29 @@ class Register : AppCompatActivity() {
 
         binding.btnSaveRegister.setOnClickListener{
             //savedata()
-            saveuserDB()
-            Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
-
+            //saveuserDB()
+            //Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
+            val usu=binding.inputEmailRegister.text.toString()
+            val key=binding.inputPasswordRegister.text.toString()
+            if (usu.isNotEmpty()&& key.isNotEmpty()){
+                if (key.length>=6){
+                    userRegisterFB(usu,key)
+                    Toast.makeText(this,"datos guardados",Toast.LENGTH_LONG).show()
+                }
+                else{
+                    Toast.makeText(this,"clave debe tener mas de 6 caracteres",Toast.LENGTH_LONG).show()
+                }
+            }
+            else{
+                Toast.makeText(this,"no deje valores vacios",Toast.LENGTH_LONG).show()
+            }
 
 
         }
+
+        val bundle=intent.extras
+        val correo:String?=bundle?.getString("correo")
+        //binding.inputEmailRegister.setText(email)
     }
 
     val openCamera =
@@ -143,5 +164,23 @@ fun saveuserDB(){
     database.userDao.insert(usu)
 
 
-}
+    }
+
+    private fun userRegisterFB(email:String,password:String){
+        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){
+            task->
+                if (task.isSuccessful){
+                    val id=firebaseAuth.uid
+                    val intent=Intent(this,Register::class.java)
+                    intent.putExtra("dataid",id)
+                    intent.putExtra("correo",email)
+                    startActivity(intent)
+                    Toast.makeText(this,"datos registrados",Toast.LENGTH_LONG).show()
+                }
+            else{
+                    Toast.makeText(this,"los datos no pueden estar vacios",Toast.LENGTH_LONG).show()
+                }
+
+        }
+    }
 }
