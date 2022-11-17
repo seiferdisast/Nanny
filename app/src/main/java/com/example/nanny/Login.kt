@@ -23,7 +23,7 @@ class Login : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        //firebaseAuth=Firebase.auth
+        firebaseAuth=Firebase.auth
         setContentView(R.layout.activity_login)
         binding=ActivityLoginBinding.inflate(layoutInflater)
         database= Room.databaseBuilder(
@@ -74,9 +74,9 @@ class Login : AppCompatActivity() {
             else{
                 Toast.makeText(this,"Datos incorrectos",Toast.LENGTH_SHORT).show()
             }*/
-            validateWithDB()
+            //validateWithDB()
             //validate()
-            //authlogin(binding.inputEmailLogin.text.toString(),binding.inputPasswordLogin.text.toString())
+            authlogin(binding.inputEmailLogin.text.toString(),binding.inputPasswordLogin.text.toString())
         }
         binding.labelRecoveryPassLogin.setOnClickListener{
             startActivity(Intent(this,RecoveryKey::class.java))
@@ -117,6 +117,10 @@ class Login : AppCompatActivity() {
 
         }
 
+
+    }
+
+    fun saveDataFirebaseStorage(){
 
     }
 
