@@ -12,6 +12,7 @@ import com.example.nanny.databinding.ActivityLoginBinding
 import com.example.nanny.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
@@ -19,6 +20,7 @@ class Login : AppCompatActivity() {
     private lateinit var database: UserData
     private lateinit var binding: ActivityLoginBinding
     private lateinit var firebaseAuth:FirebaseAuth
+    private val bd=FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -88,7 +90,11 @@ class Login : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){
             task->
             if (task.isSuccessful){
+                val id=firebaseAuth.uid
                 Toast.makeText(this,"datos ok",Toast.LENGTH_LONG).show()
+                val intent=Intent(this,User::class.java)
+                intent.putExtra("ide",id)
+                startActivity(intent)
             }
             else{
                 Toast.makeText(this,"datos incorrectos",Toast.LENGTH_LONG).show()
@@ -97,6 +103,8 @@ class Login : AppCompatActivity() {
 
 
     }
+
+
 
     fun validateWithDB(){
         val user = binding.inputEmailLogin.text.toString()

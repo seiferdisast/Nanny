@@ -17,6 +17,7 @@ import com.example.nanny.databinding.ActivityRegisterBinding
 import com.example.nanny.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.io.File
 
@@ -25,6 +26,7 @@ class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var database:UserData
     private lateinit var firebaseAuth: FirebaseAuth
+    private val db=FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -78,6 +80,14 @@ class Register : AppCompatActivity() {
             if (usu.isNotEmpty()&& key.isNotEmpty()){
                 if (key.length>=6){
                     userRegisterFB(usu,key)
+                    val bundle=intent.extras
+                    val id:String?=bundle?.getString("dataid")
+                    println("++++++++++++++++++++++++++++++++++++++++++++++")
+                    println(bundle?.getString("dataid"))
+                    //saveDataFBStorage(id?:"")
+
+
+
                     Toast.makeText(this,"datos guardados",Toast.LENGTH_LONG).show()
                 }
                 else{
@@ -89,11 +99,12 @@ class Register : AppCompatActivity() {
             }
 
 
+
+
+
         }
 
-        val bundle=intent.extras
-        val correo:String?=bundle?.getString("correo")
-        //binding.inputEmailRegister.setText(email)
+
     }
 
     val openCamera =
@@ -183,4 +194,21 @@ fun saveuserDB(){
 
         }
     }
+
+
+    private fun capcharegisterFB(){
+
+        val bundle=intent.extras
+        val email:String?=bundle?.getString("correo")
+        binding.inputEmailRegister.setText(email)
+    }
+
+    private fun saveDataFBStorage(id:String){
+        db.collection("appUser").document(id).set(
+            hashMapOf("nombre" to binding.inputNamesRegister.text.toString(),"direccion" to binding.inputAdressRegister.text.toString(),
+            "celular" to binding.inputPhoneRegister.text.toString(),"rol" to binding.inputRollRegister.text.toString())
+        )
+
+    }
+
 }
