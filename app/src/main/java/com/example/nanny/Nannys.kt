@@ -1,3 +1,6 @@
 package com.example.nanny
 
-class Nannys (val nombre:String,val correo:String)
+data class Nannys (val Nombre:String,val correo:String){
+    constructor():this("","")
+}
+
