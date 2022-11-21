@@ -27,6 +27,10 @@ class User : AppCompatActivity() {
             startActivity(Intent(this,OurNannys::class.java))
         }
 
+        binding.btnExitUser.setOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+        }
+
     }
 
     fun obtenerdatos(){
