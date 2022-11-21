@@ -35,6 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Nuetras Nannys"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         android:theme="@style/prettyButtonLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -47,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Agendamiento"
+        android:textAllCaps="false"
         android:theme="@style/prettyButtonLabelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,14 +60,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="90dp"
         android:text="Editar Perfil"
+        android:textAllCaps="false"
         android:theme="@style/prettyButtonLabelText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSchedullingUser"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSchedullingUser" />
 
     <TextView
         android:id="@+id/labelPhoneUser"
@@ -76,5 +77,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelNameUser" />
+
+    <Button
+        android:id="@+id/btnExitUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="90dp"
+        android:text="Salir"
+        android:textAllCaps="false"
+        android:theme="@style/prettyButtonLabelText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEditRegisterUser"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
