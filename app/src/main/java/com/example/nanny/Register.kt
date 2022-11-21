@@ -88,10 +88,10 @@ class Register : AppCompatActivity() {
     private fun saveDataFBStorage(id: String) {
         db.collection("appUser").document(id).set(
             hashMapOf(
-                "nombre" to binding.inputNamesRegister.text.toString(),
-                "direccion" to binding.inputAdressRegister.text.toString(),
-                "celular" to binding.inputPhoneRegister.text.toString(),
-                "rol" to binding.inputRollRegister.text.toString()//,
+                "names" to binding.inputNamesRegister.text.toString(),
+                "address" to binding.inputAdressRegister.text.toString(),
+                "phone" to binding.inputPhoneRegister.text.toString(),
+                "roll" to binding.inputRollRegister.text.toString()//,
                 //"picture" to binding.inputImageRegister.setImageBitmap(bitmap)
             )
         )
