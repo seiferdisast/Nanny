@@ -104,10 +104,7 @@ class Register : AppCompatActivity() {
                 if (task.isSuccessful) {
                     id = firebaseAuth.uid
                     id?.let { saveDataFBStorage(it) }
-                    println("/n" + "/n" + "DATOS ANTES DE SOBREESCRIBIR A CERO" + id + "/n" + "/n")
                     id = ""
-                    println("/n" + "/n" + "DATOS despues DE SOBREESCRIBIR ID" + id + "/n" + "/n")
-
                     Toast.makeText(this, "Datos registrados ", Toast.LENGTH_LONG).show()
                     startActivity(Intent(this, MainActivity::class.java))
                 } else {

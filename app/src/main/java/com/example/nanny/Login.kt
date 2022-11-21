@@ -17,119 +17,65 @@ import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
 
-    private lateinit var database: UserData
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var firebaseAuth:FirebaseAuth
-    private val bd=FirebaseFirestore.getInstance()
+    private lateinit var firebaseAuth: FirebaseAuth
+    private val bd = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-
-        firebaseAuth=Firebase.auth
+        firebaseAuth = Firebase.auth
         setContentView(R.layout.activity_login)
-        binding=ActivityLoginBinding.inflate(layoutInflater)
-        database= Room.databaseBuilder(
-            application,UserData::class.java,UserData.DATABASE_NAME).allowMainThreadQueries().build()
+        binding = ActivityLoginBinding.inflate(layoutInflater)
 
-        val view=binding.root
+        val view = binding.root
         setContentView(view)
 
-        fun validate(){
-            println("hola mundo")
-            val datauser:String=binding.inputEmailLogin.text.toString()
-            val datapass:String=binding.inputPasswordLogin.text.toString()
+        binding.btnEnterLogin.setOnClickListener {
+            val email = binding.inputEmailLogin.text.toString()
+            val password = binding.inputPasswordLogin.text.toString()
+            if(email!!.isEmpty() && password!!.isEmpty()){
+                Toast.makeText(this, "Ingrese sus datos", Toast.LENGTH_SHORT).show()
+            }else{
+                if (email!!.isEmpty()) {
+                    binding.inputEmailLogin.setText("")
+                    binding.inputEmailLogin.setHint("Ingrese su correo")
+                    Toast.makeText(this, "Ingrese un correo", Toast.LENGTH_SHORT).show()
+                } else if (password!!.isEmpty()) {
+                    binding.inputPasswordLogin.setText("")
+                    binding.inputPasswordLogin.setHint("Ingrese su contraseña")
+                    Toast.makeText(this, "Ingrese una contraseña", Toast.LENGTH_SHORT).show()
 
-            val datos =getSharedPreferences("datauser",Context.MODE_PRIVATE)
-            val user=datos.getString("nombreusuario","")
-            val password=datos.getString("claveusuario","")
-            if (user!!.isEmpty()){
-                binding.inputEmailLogin.setHint("Ingrese el correo")
+                } else {
+                    authlogin(email, password)
+                }
             }
-
-            else if(password!!.isEmpty()){
-                println("ingrese clave")
-                //binding.inputPasswordLogin.setHint("ingrese clave")
-                //binding.inputPasswordLogin.setHintTextColor(Color.RED)
-                Toast.makeText(this,"ingrese clave",Toast.LENGTH_SHORT).show()
-            }
-            else if(user.equals(datauser) && password.equals(datapass)){
-                println("Datos Correctos")
-                val intent=Intent(this,User::class.java)
-                intent.putExtra("nombre", datauser)
-                startActivity(intent)
-                Toast.makeText(this,"Datos Correctos",Toast.LENGTH_SHORT).show()
-            }
-            else {
-                println("Datos incorrectos")
-                binding.inputEmailLogin.setText("")
-                Toast.makeText(this,"Datos incorrectos",Toast.LENGTH_SHORT).show()
             }
 
-        }
-
-        binding.btnEnterLogin.setOnClickListener{
-            /*val usuario:String=binding.inputEmailLogin.text.toString()
-            val clave:String=binding.inputPasswordLogin.text.toString()
-            if (usuario=="pepe" && clave=="123"){
-                startActivity(Intent(this,User::class.java))
-            }
-            else{
-                Toast.makeText(this,"Datos incorrectos",Toast.LENGTH_SHORT).show()
-            }*/
-            //validateWithDB()
-            //validate()
-            authlogin(binding.inputEmailLogin.text.toString(),binding.inputPasswordLogin.text.toString())
-        }
-        binding.labelRecoveryPassLogin.setOnClickListener{
-            startActivity(Intent(this,RecoveryKey::class.java))
+        binding.labelRecoveryPassLogin.setOnClickListener {
+            startActivity(Intent(this, RecoveryKey::class.java))
         }
     }
 
-    private fun authlogin(email:String,password:String){
 
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){
-            task->
-            if (task.isSuccessful){
-                val id=firebaseAuth.uid
-                Toast.makeText(this,"datos ok",Toast.LENGTH_LONG).show()
-                val intent=Intent(this,User::class.java)
-                intent.putExtra("ide",id)
-                startActivity(intent)
+    private fun authlogin(email: String, password: String) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val id = firebaseAuth.uid
+                    Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, User::class.java)
+                    intent.putExtra("ide", id)
+                    startActivity(intent)
+                    binding.inputEmailLogin.setText("")
+                    binding.inputPasswordLogin.setText("")
+                } else {
+                    binding.inputEmailLogin.setText("")
+                    binding.inputEmailLogin.setHint("Ingrese el correo")
+                    binding.inputPasswordLogin.setText("")
+                    binding.inputPasswordLogin.setHint("Ingrese el contraseña")
+                    Toast.makeText(this, "Datos incorrectos", Toast.LENGTH_LONG).show()
+                }
             }
-            else{
-                Toast.makeText(this,"datos incorrectos",Toast.LENGTH_LONG).show()
-            }
-        }
-
-
-    }
-
-
-
-    fun validateWithDB(){
-        val user = binding.inputEmailLogin.text.toString()
-        val password=binding.inputPasswordLogin.text.toString()
-        val consultUser=database.userDao.consult(user)
-        if (consultUser!=null){
-            println(consultUser.pass)
-            if (consultUser.pass==password){
-                Toast.makeText(this,"datos ok",Toast.LENGTH_LONG).show()
-                startActivity(Intent(this,User::class.java))
-            }
-            else{
-                Toast.makeText(this,"clave incorrecta",Toast.LENGTH_LONG).show()
-            }
-        }
-        else{
-            Toast.makeText(this,"verifique sus datos",Toast.LENGTH_LONG).show()
-
-        }
-
-
-    }
-
-    fun saveDataFirebaseStorage(){
-
     }
 
 }
