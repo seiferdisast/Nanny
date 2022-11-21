@@ -1,5 +1,6 @@
 package com.example.nanny
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class NannysAdapter(private val context: OurNannys, val listado:MutableList<Nannys>, var clickListener:ClickListener):
+class NannysAdapter(private val context:Context, val listado:MutableList<Nannys>, var clickListener:ClickListener):
     RecyclerView.Adapter<NannysAdapter.ViewHolder>(){
     inner class ViewHolder(itemview:View,listener:ClickListener):RecyclerView.ViewHolder(itemview),View.OnClickListener{
         var datos:TextView
@@ -18,6 +19,7 @@ class NannysAdapter(private val context: OurNannys, val listado:MutableList<Nann
             datos=itemview.findViewById(R.id.labelNameCardnanny)
             datos2=itemview.findViewById(R.id.labelPhoneCardnanny)
             this.listener=listener
+            itemview.setOnClickListener(this)
 
         }
 
