@@ -31,7 +31,7 @@ class RecoveryKey : AppCompatActivity() {
         firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(){
             task->
             if(task.isSuccessful){
-                Toast.makeText(this,"su correo de recuperacion",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Revisa la bandeja de entrada de tu correo asociado",Toast.LENGTH_LONG).show()
             }
         }
     }
