@@ -25,7 +25,7 @@ class OurNannys : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityOurNannysBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val intent=Intent(this,Nannydetail::class.java)
+        val intent=Intent(this,DetailsNannys::class.java)
         db=FirebaseFirestore.getInstance()
 
         db.collection("listadoNannys").addSnapshotListener(object :EventListener<QuerySnapshot>{
@@ -49,12 +49,16 @@ class OurNannys : AppCompatActivity() {
 
         ap= NannysAdapter(this,listN!!,object:ClickListener{
             override fun onClic(vista:View, posicion:Int){
-                Toast.makeText(applicationContext,listN?.get(posicion)?.Nombre,Toast.LENGTH_LONG).show()
-                val nom=listN?.get(posicion)?.Nombre
+                Toast.makeText(applicationContext,listN?.get(posicion)?.names,Toast.LENGTH_LONG).show()
+                val nom=listN?.get(posicion)?.names
                 val corr=listN?.get(posicion)?.correo
+                val imag=listN?.get(posicion)?.image
+                val phone=listN?.get(posicion)?.phone
 
                 intent.putExtra("n",nom)
                 intent.putExtra("c",corr)
+                intent.putExtra("i",imag)
+                intent.putExtra("p",phone)
                 startActivity(intent)
 
             }

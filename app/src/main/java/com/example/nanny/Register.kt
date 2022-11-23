@@ -62,10 +62,11 @@ class Register : AppCompatActivity() {
         binding.btnSaveRegister.setOnClickListener {
             val emailValue = binding.inputEmailRegister.text.toString()
             val passwordValue = binding.inputPasswordRegister.text.toString()
+            val roll=binding.inputRollRegister.text.toString()
 
             if (emailValue.isNotEmpty() && passwordValue.isNotEmpty()) {
                 if (passwordValue.length >= 6) {
-                    userRegisterFB(emailValue, passwordValue)
+                    userRegisterFB(emailValue, passwordValue, roll )
 
                 } else {
                     Toast.makeText(this, "clave debe tener mas de 6 caracteres", Toast.LENGTH_LONG)
@@ -85,8 +86,15 @@ class Register : AppCompatActivity() {
         file = File.createTempFile("IMG_${System.currentTimeMillis()}_", ".jpg", dir)
     }
 
-    private fun saveDataFBStorage(id: String) {
-        db.collection("appUser").document(id).set(
+    private fun saveDataFBStorage(id: String,roll:String) {
+        var folderFB=""
+        if (roll=="nanny"){
+            folderFB="listadoNannys"
+        }
+        else{
+            folderFB="appUser"
+        }
+        db.collection(folderFB).document(id).set(
             hashMapOf(
                 "names" to binding.inputNamesRegister.text.toString(),
                 "address" to binding.inputAdressRegister.text.toString(),
@@ -98,12 +106,12 @@ class Register : AppCompatActivity() {
     }
 
 
-    private fun userRegisterFB(email: String, password: String) {
+    private fun userRegisterFB(email: String, password: String,roll:String) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     id = firebaseAuth.uid
-                    id?.let { saveDataFBStorage(it) }
+                    id?.let { saveDataFBStorage(it,roll) }
                     id = ""
                     Toast.makeText(this, "Datos registrados ", Toast.LENGTH_LONG).show()
                     startActivity(Intent(this, MainActivity::class.java))

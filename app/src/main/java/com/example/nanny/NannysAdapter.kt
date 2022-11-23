@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ExpandableListView.OnChildClickListener
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,10 +15,12 @@ class NannysAdapter(private val context:Context, val listado:MutableList<Nannys>
     inner class ViewHolder(itemview:View,listener:ClickListener):RecyclerView.ViewHolder(itemview),View.OnClickListener{
         var datos:TextView
         var datos2:TextView
+        var dataImage:ImageView
         var listener:ClickListener?=null
         init {
             datos=itemview.findViewById(R.id.labelNameCardnanny)
             datos2=itemview.findViewById(R.id.labelPhoneCardnanny)
+            dataImage=itemview.findViewById(R.id.imageNanyCardnanny)
             this.listener=listener
             itemview.setOnClickListener(this)
 
@@ -35,9 +38,9 @@ class NannysAdapter(private val context:Context, val listado:MutableList<Nannys>
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nanny=listado[position]
-        holder.datos.text=nanny.Nombre
+        holder.datos.text=nanny.names
         holder.datos2.text=nanny.correo
-        //Glide.with(holder.itemView).load()
+        Glide.with(holder.itemView).load(nanny.image).into((holder.dataImage))
 
     }
 
