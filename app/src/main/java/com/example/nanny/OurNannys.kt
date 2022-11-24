@@ -51,16 +51,18 @@ class OurNannys : AppCompatActivity() {
             override fun onClic(vista:View, posicion:Int){
                 Toast.makeText(applicationContext,listN?.get(posicion)?.names,Toast.LENGTH_LONG).show()
                 val names=listN?.get(posicion)?.names
-                val email=listN?.get(posicion)?.correo
+                val email=listN?.get(posicion)?.email
                 val image=listN?.get(posicion)?.image
                 val phone=listN?.get(posicion)?.phone
                 val adreess=listN?.get(posicion)?.address
+                val roll=listN?.get(posicion)?.roll
 
                 intent.putExtra("names",names)
                 intent.putExtra("email",email)
                 intent.putExtra("image",image)
                 intent.putExtra("phone",phone)
                 intent.putExtra("adreess",adreess)
+                intent.putExtra("roll",roll)
                 startActivity(intent)
 
             }

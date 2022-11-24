@@ -17,7 +17,7 @@ class DetailsNannys : AppCompatActivity() {
         val address=bundle?.getString("adreess")
         val phone=bundle?.getString("phone")
         val email=bundle?.getString("email")
-        val roll=bundle?.getString("r")
+        val roll=bundle?.getString("roll")
         val image=bundle?.getString("image")
         binding.labelNamesDetailsNannis.setText(name)
         binding.labelAddressDetailsNannis.setText(address)
