@@ -28,7 +28,7 @@ class OurNannys : AppCompatActivity() {
         val intent=Intent(this,DetailsNannys::class.java)
         db=FirebaseFirestore.getInstance()
 
-        db.collection("listadoNannys").addSnapshotListener(object :EventListener<QuerySnapshot>{
+        db.collection("listNannys").addSnapshotListener(object :EventListener<QuerySnapshot>{
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if(error!=null){
                     println("Error en la firebase")
