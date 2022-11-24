@@ -89,7 +89,7 @@ class Register : AppCompatActivity() {
     private fun saveDataFBStorage(id: String,roll:String) {
         var folderFB=""
         if (roll=="nanny"){
-            folderFB="listadoNannys"
+            folderFB="listNannys"
         }
         else{
             folderFB="appUser"
