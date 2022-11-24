@@ -50,14 +50,14 @@ class OurNannys : AppCompatActivity() {
         ap= NannysAdapter(this,listN!!,object:ClickListener{
             override fun onClic(vista:View, posicion:Int){
                 Toast.makeText(applicationContext,listN?.get(posicion)?.names,Toast.LENGTH_LONG).show()
-                val nom=listN?.get(posicion)?.names
-                val corr=listN?.get(posicion)?.correo
-                val imag=listN?.get(posicion)?.image
+                val names=listN?.get(posicion)?.names
+                val email=listN?.get(posicion)?.correo
+                val image=listN?.get(posicion)?.image
                 val phone=listN?.get(posicion)?.phone
 
-                intent.putExtra("n",nom)
-                intent.putExtra("c",corr)
-                intent.putExtra("i",imag)
+                intent.putExtra("n",names)
+                intent.putExtra("c",email)
+                intent.putExtra("i",image)
                 intent.putExtra("p",phone)
                 startActivity(intent)
 
