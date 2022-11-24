@@ -54,11 +54,13 @@ class OurNannys : AppCompatActivity() {
                 val email=listN?.get(posicion)?.correo
                 val image=listN?.get(posicion)?.image
                 val phone=listN?.get(posicion)?.phone
+                val adreess=listN?.get(posicion)?.address
 
-                intent.putExtra("n",names)
-                intent.putExtra("c",email)
-                intent.putExtra("i",image)
-                intent.putExtra("p",phone)
+                intent.putExtra("names",names)
+                intent.putExtra("email",email)
+                intent.putExtra("image",image)
+                intent.putExtra("phone",phone)
+                intent.putExtra("adreess",adreess)
                 startActivity(intent)
 
             }

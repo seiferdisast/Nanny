@@ -99,7 +99,8 @@ class Register : AppCompatActivity() {
                 "names" to binding.inputNamesRegister.text.toString(),
                 "address" to binding.inputAdressRegister.text.toString(),
                 "phone" to binding.inputPhoneRegister.text.toString(),
-                "roll" to binding.inputRollRegister.text.toString()//,
+                "roll" to binding.inputRollRegister.text.toString(),
+                "email" to binding.inputEmailRegister.text.toString()//,
                 //"picture" to binding.inputImageRegister.setImageBitmap(bitmap)
             )
         )

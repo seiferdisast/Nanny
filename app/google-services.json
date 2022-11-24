@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "161300623223",
-    "project_id": "nanny-e2c64",
-    "storage_bucket": "nanny-e2c64.appspot.com"
+    "project_number": "282466931371",
+    "project_id": "nannys-3196d",
+    "storage_bucket": "nannys-3196d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:161300623223:android:c6cbe819d62c1b2c8efb72",
+        "mobilesdk_app_id": "1:282466931371:android:405a639bf99ca1fb3a9dee",
         "android_client_info": {
           "package_name": "com.example.nanny"
         }
       },
       "oauth_client": [
         {
-          "client_id": "161300623223-3ogq654722il2j8tsh0b595ii009gsic.apps.googleusercontent.com",
+          "client_id": "282466931371-3607rm4883qqr3j0ama1p04mqei8mc8r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBUFYuXmshXIveIo7yshbpzEh3iTETJWUc"
+          "current_key": "AIzaSyD6hyN9gPSoag4HDP9EVsX0uUrDQ5ev5oQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "161300623223-3ogq654722il2j8tsh0b595ii009gsic.apps.googleusercontent.com",
+              "client_id": "282466931371-3607rm4883qqr3j0ama1p04mqei8mc8r.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
